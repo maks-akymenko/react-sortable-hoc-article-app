@@ -44,7 +44,7 @@ const App = () => {
     <div className="App">
       <h1>Drag those gifs around</h1>
       <h2>Set 1</h2>
-      <SortableGifsContainer axis="x" onSortEnd={onSortEnd}>
+      <SortableGifsContainer axis="x" onSortEnd={onSortEnd} onSortStart={(_, event) => event.preventDefault()}>
         {gifs.map((gif, i) =>
           <SortableGif
             index={i}
@@ -55,7 +55,7 @@ const App = () => {
         )}
       </SortableGifsContainer>
       <h2>Set 2</h2>
-      <SortableGifsContainer axis="x" onSortEnd={onSortEnd} >
+      <SortableGifsContainer axis="x" onSortEnd={onSortEnd} onSortStart={(_, event) => event.preventDefault()} >
         {newGifs.map((gif, i) => <SortableGif index={i} key={gif} gif={gif} collection="newGifs" />)}
       </SortableGifsContainer>
     </div>
